@@ -285,7 +285,7 @@
 
     @media (max-width: 768px) {
         &__content {
-            padding: 4rem 2rem 2.5rem; // Уменьшаем боковые отступы
+            padding: 4rem 2rem 2.5rem;
             width: 92%;
             max-height: max-content;
         }
@@ -297,44 +297,39 @@
             margin-bottom: 2rem;
 
             .c-modal__title {
-                font-size: 2rem; // Немного уменьшаем заголовок
+                font-size: 2rem;
             }
         }
 
         &__form {
-            gap: 1.6rem; // Уменьшаем вертикальные зазоры
+            gap: 1.6rem;
 
             .form-row {
-                flex-direction: column; // Складываем поля в одну колонку
+                flex-direction: column;
                 gap: 1.6rem;
             }
 
             .form-group {
                 &.half {
-                    width: 100%; // На мобильных "половинки" становятся на всю ширину
+                    width: 100%;
                 }
             }
 
             .c-modal__footer {
-                flex-direction: column; // Кнопка и текст согласия друг под другом
+                flex-direction: column;
                 gap: 2rem;
                 align-items: stretch;
 
                 button {
-                    max-width: 100%; // Кнопка на всю ширину для удобства нажатия пальцем
-                    order: 1; // Кнопка сверху
+                    max-width: 100%;
+                    order: 1;
                 }
 
                 .consent-text {
-                    text-align: center; // Центрируем текст согласия
-                    order: 2; // Текст снизу
+                    text-align: center;
+                    order: 2;
                 }
             }
         }
-
-        // &__close {
-        //     top: 1rem;
-        //     right: 1rem;
-        // }
     }
 }
