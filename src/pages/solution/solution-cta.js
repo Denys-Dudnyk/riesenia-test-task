@@ -11,7 +11,7 @@ export const solutionCta = (ctaBanner) => {
         <div class="c-solution-cta">
             <div
                 class="c-solution-cta__image"
-                style="background-image: url('src/assets/images/cta-banner-bg.webp')"
+                style="background-image: url('/images/cta-banner-bg.webp')"
             ></div>
 
             <div class="c-solution-cta__overlay"></div>

@@ -2,11 +2,11 @@ import { html } from "lit-html";
 import { arrowRightIconMiddle } from "./ui/icons";
 
 const categoryImages = {
-    "elektricke-naradie": "src/assets/images/categories/category-tools.webp",
-    "zahrada-a-les": "src/assets/images/categories/category-garden.webp",
-    "cistenie-a-upratovanie": "src/assets/images/categories/category-cleaning.webp",
-    "rucne-naradie": "src/assets/images/categories/category-hand-tools.webp",
-    prislusenstvo: "src/assets/images/categories/category-accessories.webp",
+    "elektricke-naradie": "/images/categories/category-tools.webp",
+    "zahrada-a-les": "/images/categories/category-garden.webp",
+    "cistenie-a-upratovanie": "/images/categories/category-cleaning.webp",
+    "rucne-naradie": "/images/categories/category-hand-tools.webp",
+    prislusenstvo: "/images/categories/category-accessories.webp",
 };
 
 export const categoryCard = (category, modifier) => {

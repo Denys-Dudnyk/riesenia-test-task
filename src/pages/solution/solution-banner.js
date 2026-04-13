@@ -14,11 +14,8 @@ export const solutionBanner = (banner) => {
         <div class="c-solution-banner">
             <div class="c-solution-banner__image">
                 <picture>
-                    <source
-                        media="(max-width: 768px)"
-                        srcset="/src/assets/images/hero-banner-mobile.png"
-                    />
-                    <img src="/src/assets/images/hero-banner-bg.webp" alt="${banner.title}" />
+                    <source media="(max-width: 768px)" srcset="/images/hero-banner-mobile.png" />
+                    <img src="/images/hero-banner-bg.webp" alt="${banner.title}" />
                 </picture>
             </div>
             <div class="c-solution-banner__overlay"></div>

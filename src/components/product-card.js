@@ -4,8 +4,8 @@ import { cartIcon, compareIcon, starIcon, wishlistIcon } from "./ui/icons";
 import { showToast } from "./ui/toast";
 
 const productImages = {
-    1: "src/assets/images/products/product-1.webp",
-    2: "src/assets/images/products/product-2.webp",
+    1: "/images/products/product-1.webp",
+    2: "/images/products/product-2.webp",
 };
 
 export const productCard = (product) => {

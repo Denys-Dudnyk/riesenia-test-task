@@ -1,6 +1,6 @@
 import { html } from "lit-html";
 import { router } from "../router.js";
-import logoSvg from "../assets/images/logo.svg";
+import logoSvg from "/images/logo.svg";
 
 /**
  * Render header component
