@@ -1,4 +1,5 @@
 import { html } from "lit-html";
+import { ctaModal } from "../../components/modal.js";
 import { productCard } from "../../components/product-card.js";
 import { emptyProductsState } from "../../components/ui/emptyProductsState.js";
 import { loadData } from "../../dataLoader.js";
@@ -49,6 +50,7 @@ export const renderSolutionPage = (data) => {
             </section>
         </div>
         <div id="toast-container" class="c-toast-container"></div>
+        ${ctaModal()}
     `;
 };
 

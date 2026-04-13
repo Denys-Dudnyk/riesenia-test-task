@@ -1,0 +1,340 @@
+@use "../init" as *;
+
+.c-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+
+    &.is-active {
+        opacity: 1;
+        visibility: visible;
+
+        .c-modal__content {
+            transform: translateY(0);
+        }
+    }
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(2px);
+    }
+
+    &__content {
+        position: relative;
+        background: #fff;
+        width: 100%;
+        max-width: 58.8rem;
+        height: 100%;
+        max-height: 51rem;
+        padding: 4rem;
+        border-radius: 0.4rem;
+        transform: translateY(-20px);
+        transition: transform 0.3s ease;
+        z-index: 10;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    &__close {
+        position: absolute;
+        top: 1.6rem;
+        right: 1.6rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #333;
+
+        &:hover {
+            color: $r-maincta-pink;
+        }
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 3.2rem;
+
+        .c-modal__title {
+            font-size: 2.4rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .c-modal__required {
+            color: $r-maincta-pink;
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 2.4rem;
+        .form-row {
+            display: flex;
+            gap: 1.6rem;
+        }
+
+        .form-group {
+            width: 100%;
+
+            &.half {
+                width: 50%;
+            }
+
+            label {
+                display: block;
+                font-weight: 700;
+                margin-bottom: 0.4rem;
+                span {
+                    color: $r-maincta-pink;
+                }
+            }
+
+            input,
+            select {
+                width: 100%;
+                padding: 1.5rem 2.5rem;
+                border: 1px solid #cacaca;
+                border-radius: 0.4rem;
+
+                font-family: $font-main;
+                font-weight: 500;
+                color: $r-gray;
+                transition: border-color 0.2s;
+
+                &:focus {
+                    outline: none;
+                    border-color: $r-maincta-pink;
+                }
+            }
+
+            select {
+                padding: 1.5rem 2rem;
+            }
+        }
+
+        .phone-input-wrap {
+            display: flex;
+            gap: 0.2rem;
+            border: 1px solid #ddd;
+            border-radius: 0.4rem;
+            overflow: hidden;
+
+            .prefix {
+                padding: 1.5rem 0 1.5rem 2.5rem;
+                font-size: 1.4rem;
+                font-family: $font-main;
+                font-weight: 500;
+                color: $r-gray;
+            }
+
+            input {
+                border: none;
+                border-radius: 0;
+                padding: 1.5rem 2.5rem 1.5rem 0;
+            }
+        }
+
+        .c-modal__custom-select {
+            position: relative;
+            width: 100%;
+            user-select: none;
+
+            &.is-active {
+                .c-modal__select-trigger {
+                    border-color: $r-maincta-pink;
+                }
+                .c-modal__select-arrow {
+                    transform: rotate(180deg);
+                    color: $r-maincta-pink;
+                }
+                .c-modal__select-options {
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translateY(0);
+                }
+            }
+        }
+
+        .c-modal__custom-select.has-error .c-modal__select-trigger {
+            border-color: #ff4d4f;
+            background-color: #fff2f0;
+        }
+
+        .c-modal__select-trigger {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem 2.5rem;
+            background: $r-white;
+            border: 0.1rem solid #cacaca;
+            border-radius: 0.4rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            .c-modal__selected-text {
+                font-size: 1.6rem;
+                color: $r-gray;
+                font-weight: 500;
+            }
+
+            .c-modal__select-arrow {
+                transition: transform 0.3s ease;
+                color: $r-black;
+            }
+        }
+
+        .c-modal__select-options {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            left: 0;
+            right: 0;
+            background: $r-white;
+            border: 0.1rem solid #cacaca;
+            border-radius: 0.4rem;
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            list-style: none;
+
+            margin: 0;
+
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-1rem);
+            transition: all 0.3s ease;
+        }
+
+        .c-modal__option {
+            padding: 1.2rem 2.5rem;
+            font-size: 1.6rem;
+            color: $r-gray;
+            cursor: pointer;
+            transition:
+                background 0.2s,
+                color 0.2s;
+
+            &:hover {
+                background-color: rgba($r-maincta-pink, 0.05);
+                color: $r-maincta-pink;
+            }
+
+            &.is-selected {
+                background-color: rgba($r-maincta-pink, 0.1);
+                color: $r-maincta-pink;
+                font-weight: 700;
+            }
+            &.is-disabled {
+                color: $r-gray;
+                cursor: default;
+                pointer-events: none;
+                background: #ddd !important;
+
+                border-bottom: 1px solid #eee;
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        .c-modal__footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 5rem;
+
+            button {
+                background: $r-maincta-pink;
+                color: $r-white;
+                border: none;
+                padding: 1.6rem 3.2rem;
+                font-weight: bold;
+                border-radius: 0.4rem;
+                display: flex;
+                align-items: center;
+                gap: 0.3rem;
+                cursor: pointer;
+                max-height: 5rem;
+                max-width: 23.8rem;
+                width: 100%;
+                height: 100%;
+            }
+
+            .consent-text {
+                font-size: 1.4rem;
+                color: $r-black;
+                text-align: left;
+
+                a {
+                    color: $r-maincta-pink;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        &__content {
+            padding: 4rem 2rem 2.5rem; // Уменьшаем боковые отступы
+            width: 92%;
+            max-height: max-content;
+        }
+
+        &__header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+
+            .c-modal__title {
+                font-size: 2rem; // Немного уменьшаем заголовок
+            }
+        }
+
+        &__form {
+            gap: 1.6rem; // Уменьшаем вертикальные зазоры
+
+            .form-row {
+                flex-direction: column; // Складываем поля в одну колонку
+                gap: 1.6rem;
+            }
+
+            .form-group {
+                &.half {
+                    width: 100%; // На мобильных "половинки" становятся на всю ширину
+                }
+            }
+
+            .c-modal__footer {
+                flex-direction: column; // Кнопка и текст согласия друг под другом
+                gap: 2rem;
+                align-items: stretch;
+
+                button {
+                    max-width: 100%; // Кнопка на всю ширину для удобства нажатия пальцем
+                    order: 1; // Кнопка сверху
+                }
+
+                .consent-text {
+                    text-align: center; // Центрируем текст согласия
+                    order: 2; // Текст снизу
+                }
+            }
+        }
+
+        // &__close {
+        //     top: 1rem;
+        //     right: 1rem;
+        // }
+    }
+}

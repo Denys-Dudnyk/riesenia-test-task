@@ -1,12 +1,7 @@
 import { html } from "lit-html";
+import { openModal } from "../../components/modal";
 import { arrowRightIcon } from "../../components/ui/icons";
 import { highlightText } from "../../utils/helpers";
-
-// CTA button click handler
-const handleCtaClick = () => {
-    console.log("CTA button clicked");
-    // TODO: Implement email form/modal
-};
 
 // Solution CTA section
 export const solutionCta = (ctaBanner) => {
@@ -26,7 +21,7 @@ export const solutionCta = (ctaBanner) => {
 
                 <div class="c-solution-cta__content__description">${description}</div>
 
-                <button class="c-solution-cta__content__button" @click=${() => handleCtaClick()}>
+                <button class="c-solution-cta__content__button" @click=${() => openModal()}>
                     <span class="sc-text">${ctaBanner.ctaText}</span>
                     ${arrowRightIcon()}
                 </button>
