@@ -3,6 +3,7 @@ import { ctaModal } from "../../components/modal.js";
 import { productCard } from "../../components/product-card.js";
 import { emptyProductsState } from "../../components/ui/emptyProductsState.js";
 import { loadData } from "../../dataLoader.js";
+import { solutionCategories } from "./categories.js";
 import { solutionBanner } from "./solution-banner.js";
 import { solutionCta } from "./solution-cta.js";
 
@@ -44,8 +45,8 @@ export const renderSolutionPage = (data) => {
             </section>
 
             <section class="l-solution__categories">
-                <div class="l-container">
-                    <div class="c-solution-categories"></div>
+                <div class="l-container is-shorter">
+                    <div class="c-solution-categories">${solutionCategories(data.categories)}</div>
                 </div>
             </section>
         </div>
