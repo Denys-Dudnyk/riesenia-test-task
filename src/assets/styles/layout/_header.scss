@@ -20,6 +20,10 @@
         display: flex;
         gap: 2.4rem;
 
+        @media (max-width: 425px) {
+            gap: 1rem;
+        }
+
         .c-link {
             font-weight: 700;
             color: var(--c-white);

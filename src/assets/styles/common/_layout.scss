@@ -2,9 +2,10 @@
 
 :root {
     // base colors
-    --c-white: #fff;
-    --c-black: #000;
+    --c-white: #{$r-white};
+    --c-black: #{$r-black};
     --c-border: #e0e2e8;
+    --c-primary: #{$r-maincta-pink};
 
     // project colors
     --c-font: var(--c-black);
@@ -14,7 +15,8 @@
     --s-container-padding: 2rem;
 
     // fonts
-    --f-primary: system-ui, avenir, helvetica, arial, sans-serif;
+    --f-primary: #{$font-main};
+    --f-headings: #{$font-headings};
 }
 
 body {
@@ -30,6 +32,19 @@ body {
     text-rendering: optimizelegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    @media (max-width: 425px) {
+        min-width: auto;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+.h-title {
+    font-family: var(--f-headings);
+    font-weight: 800;
 }
 
 .l-container {

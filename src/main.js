@@ -1,11 +1,11 @@
-import "./assets/styles/import.scss";
 import { html, render } from "lit-html";
-import { router } from "./router.js";
-import { logDataMode } from "./dataLoader.js";
-import { renderHeader } from "./components/header.js";
+import "./assets/styles/import.scss";
 import { renderFooter } from "./components/footer.js";
+import { renderHeader } from "./components/header.js";
+import { logDataMode } from "./dataLoader.js";
 import { renderAssignmentPage } from "./pages/assignment.js";
-import { loadAndRenderSolutionPage } from "./pages/solution.js";
+import { loadAndRenderSolutionPage } from "./pages/solution/solution.js";
+import { router } from "./router.js";
 
 // Log current data mode
 logDataMode();
