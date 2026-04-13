@@ -1,0 +1,80 @@
+@use "../init" as *;
+
+.c-toast-container {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    left: 2rem;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.c-toast {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.6rem 2.4rem;
+    background: $r-white;
+    border-radius: 0.8rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    min-width: 30rem;
+    animation: slideIn 0.3s ease forwards;
+    border-left: 4px solid transparent;
+
+    &__icon {
+        margin: 0;
+        padding: 0;
+        width: 2rem;
+        height: 2rem;
+    }
+
+    &.is-success {
+        border-left-color: $r-maincta-pink;
+        svg {
+            color: $r-green;
+        }
+    }
+
+    &.is-error {
+        border-left-color: red;
+        background: $r-background;
+        svg {
+            color: red;
+        }
+    }
+
+    &__message {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: $r-black;
+    }
+
+    &.is-fading {
+        animation: fadeOut 0.5s ease forwards;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}

@@ -6,5 +6,11 @@
 .l-solution {
     &__banner {
         margin-bottom: 10rem;
+
+        @media (max-width: 768px) {
+            .l-container {
+                padding: 0;
+            }
+        }
     }
 }
