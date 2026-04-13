@@ -14,7 +14,7 @@ export const solutionBanner = (banner) => {
         <div class="c-solution-banner">
             <div class="c-solution-banner__image">
                 <picture>
-                    <source media="(max-width: 768px)" srcset="/images/hero-banner-mobile.png" />
+                    <source media="(max-width: 375px)" srcset="/images/hero-banner-mobile.webp" />
                     <img src="/images/hero-banner-bg.webp" alt="${banner.title}" />
                 </picture>
             </div>
